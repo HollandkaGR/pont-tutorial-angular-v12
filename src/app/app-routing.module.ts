@@ -12,6 +12,13 @@ export const appRoutes: AppRoute[] = [
         route: { path: 'basics', loadChildren: () => import('./basics/basics.module').then((m) => m.BasicsModule) },
     },
     {
+        displayName: 'Routing',
+        route: {
+            path: 'routing',
+            loadChildren: () => import('./my-routing/my-routing.module').then((m) => m.MyRoutingModule),
+        },
+    },
+    {
         displayName: 'Secret',
         route: {
             path: 'pipes',

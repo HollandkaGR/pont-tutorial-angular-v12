@@ -131,6 +131,7 @@ export const basicsRoutes: AppRoute = {
                     basicsRoutes.children?.map((route) => ({
                         path: route.route.path,
                         component: route.route.component,
+                        children: route.children || [],
                     })) || [],
             },
         ]),

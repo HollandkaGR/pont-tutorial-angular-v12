@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
+import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { DataSourceService, User } from 'src/app/shared/services/data-source.service';
 
 export interface UserState {
@@ -27,6 +29,10 @@ export class UserStore extends ComponentStore<UserState> {
     );
 
     readonly activeUsersCount$ = this.select((state) => state.users.length);
+
+    public userById(id: number): Observable<User | null> {
+        return this.select((s) => s.users.find((u) => u.id === id) || null).pipe(delay(1000));
+    }
 
     public banUser(user: User) {
         this.patchState((s) => ({

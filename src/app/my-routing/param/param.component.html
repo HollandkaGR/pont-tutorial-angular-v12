@@ -1,0 +1,12 @@
+<div
+    *ngIf="userData$ | async as userData; else userNotFound"
+    class="p-2 bg-blue-700 border border-gray-300 rounded-md">
+    <p>Id: {{ userData.id }}</p>
+    <p>Name: {{ userData.name }}</p>
+    <p>Age: {{ userData.age }}</p>
+    <p>Username: {{ userData.username }}</p>
+</div>
+
+<ng-template #userNotFound>
+    <p>User not found</p>
+</ng-template>
