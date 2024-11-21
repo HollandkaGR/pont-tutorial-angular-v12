@@ -1,19 +1,1 @@
 <p>home works!</p>
-<div class="flex gap-2">
-    <button
-        (click)="hooksVisibe = !hooksVisibe"
-        class="bg-blue-500 px-4 py-2 rounded">
-        Show hooks
-    </button>
-    <button
-        (click)="changeInput()"
-        class="bg-blue-500 px-4 py-2 rounded">
-        Change input
-    </button>
-</div>
-<ng-container *ngIf="hooksVisibe; else noHooks">
-    <app-lifecycle-hooks [inputString]="inputToPass"></app-lifecycle-hooks>
-</ng-container>
-<ng-template #noHooks>
-    <p>No hooks</p>
-</ng-template>

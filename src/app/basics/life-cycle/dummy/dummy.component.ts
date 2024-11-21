@@ -13,10 +13,11 @@ import {
 } from '@angular/core';
 
 @Component({
-    selector: 'app-lifecycle-hooks',
-    templateUrl: './lifecycle-hooks.component.html',
+    selector: 'app-dummy',
+    templateUrl: './dummy.component.html',
+    styleUrls: ['./dummy.component.scss'],
 })
-export class LifecycleHooksComponent
+export class DummyComponent
     implements
         OnInit,
         OnDestroy,

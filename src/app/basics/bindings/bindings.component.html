@@ -1,0 +1,52 @@
+<div class="flex flex-col gap-5">
+    <div class="flex flex-col items-start gap-2">
+        <h4 class="text-2xl leading-6 text-red-700">One way binding</h4>
+        <input
+            class="text-black"
+            type="text"
+            [value]="oneWayInput" />
+
+        <input
+            class="text-black"
+            type="text"
+            #oneWay
+            (input)="oneWayInput = oneWay.value" />
+        <p>Value: {{ oneWayInput }}</p>
+    </div>
+    <hr />
+    <div class="flex flex-col items-start gap-2">
+        <h4 class="text-2xl leading-6 text-red-700">Two way binding</h4>
+        <input
+            class="text-black"
+            type="text"
+            id="twoway"
+            #twoWay
+            [value]="twoWayInput"
+            (input)="twoWayInput = twoWay.value" />
+        <input
+            class="text-black"
+            type="text"
+            id="twoway"
+            #twoWay
+            [value]="twoWayInput"
+            (input)="twoWayInput = twoWay.value" />
+        <p>Value: {{ twoWayInput }}</p>
+    </div>
+    <div class="flex flex-col items-start gap-2">
+        <h4 class="text-2xl leading-6 text-red-700">NG Model</h4>
+        <input
+            class="text-black"
+            type="text"
+            id="twoway"
+            #twoWay
+            [(ngModel)]="ngModel" />
+        <input
+            class="text-black"
+            type="text"
+            id="twoway"
+            #twoWay
+            [value]="twoWayInput"
+            (input)="twoWayInput = twoWay.value" />
+        <p>Value: {{ twoWayInput }}</p>
+    </div>
+</div>

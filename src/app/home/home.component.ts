@@ -9,11 +9,17 @@ export class HomeComponent implements OnInit {
     public hooksVisibe = false;
     public inputToPass = 'Updated from outside';
 
+    public inputValue = 'Default';
+
     constructor() {}
 
     ngOnInit(): void {}
 
     public changeInput() {
         this.inputToPass = Math.random().toString();
+    }
+
+    public inputChanged(ref: Event) {
+        console.log(ref);
     }
 }
