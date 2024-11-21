@@ -16,6 +16,7 @@ import { DummyComponent } from './life-cycle/dummy/dummy.component';
 import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenedPipe } from './pipes/shortened.pipe';
+import { TDFormComponent } from './tdform/tdform.component';
 
 export const basicsRoutes: AppRoute = {
     displayName: 'Life Cycle',
@@ -59,6 +60,13 @@ export const basicsRoutes: AppRoute = {
                 component: PipesComponent,
             },
         },
+        {
+            displayName: 'TDForm',
+            route: {
+                path: 'template-driven-form',
+                component: TDFormComponent,
+            },
+        },
     ],
 };
 
@@ -76,6 +84,7 @@ export const basicsRoutes: AppRoute = {
         UnlessDirective,
         PipesComponent,
         ShortenedPipe,
+        TDFormComponent,
     ],
     imports: [
         CommonModule,

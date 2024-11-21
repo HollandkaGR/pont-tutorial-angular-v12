@@ -1,0 +1,52 @@
+<h1 class="text-2xl font-bold text-center">{{ title }}</h1>
+<div class="flex flex-col items-center p-5">
+    <pre>Valid? {{ singUpForm.form.controls.email?.valid }}</pre>
+    <pre>Dirty? {{ singUpForm.form.controls.email?.dirty }}</pre>
+    <pre>Touched? {{ singUpForm.form.controls.email?.touched }}</pre>
+    <form
+        #singUpForm="ngForm"
+        (ngSubmit)="onSubmit(singUpForm)"
+        class="flex flex-col gap-2 p-5 border border-gray-400 rounded">
+        <div class="flex flex-col">
+            <label for="firstname">First Name</label>
+            <input
+                type="text"
+                name="firstname"
+                class="text-black"
+                ngModel
+                required />
+        </div>
+
+        <div class="flex flex-col">
+            <label for="lastname">Last Name</label>
+            <input
+                type="text"
+                name="lastname"
+                class="text-black"
+                ngModel
+                required />
+        </div>
+
+        <div class="flex flex-col">
+            <label for="email">Email </label>
+            <input
+                type="text"
+                id="email"
+                name="email"
+                class="text-black"
+                ngModel
+                required
+                email />
+        </div>
+
+        <div class="flex justify-center gap-3">
+            <button
+                type="submit"
+                class="px-4 py-2 rounded"
+                [ngClass]="singUpForm.valid ? 'bg-green-700' : 'bg-red-700'"
+                [disabled]="!singUpForm.valid">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
