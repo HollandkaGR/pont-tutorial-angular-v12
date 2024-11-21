@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BasicsModule } from './basics/basics.module';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [AppComponent, HomeComponent],
-    imports: [BrowserModule, AppRoutingModule, BasicsModule, CoreModule],
+    imports: [BrowserModule, AppRoutingModule, CoreModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })

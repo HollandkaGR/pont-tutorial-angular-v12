@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoute } from '../core/models/app-route.model';
 import { SharedModule } from '../shared/shared.module';
@@ -34,10 +34,10 @@ export const basicsRoutes: AppRoute = {
 };
 
 @NgModule({
-    declarations: [LifecycleHooksComponent, BasicHomeComponent, DummyComponent],
+    declarations: [LifecycleHooksComponent, BasicHomeComponent, DummyComponent, BindingsComponent],
     imports: [
         CommonModule,
-        ReactiveFormsModule,
+        FormsModule,
         RouterModule.forChild([
             {
                 path: basicsRoutes.route.path,
@@ -51,5 +51,6 @@ export const basicsRoutes: AppRoute = {
         ]),
         SharedModule,
     ],
+    exports: [],
 })
 export class BasicsModule {}
