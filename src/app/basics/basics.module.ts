@@ -6,8 +6,11 @@ import { AppRoute } from '../core/models/app-route.model';
 import { SharedModule } from '../shared/shared.module';
 import { BasicHomeComponent } from './basic-home/basic-home.component';
 import { BindingsComponent } from './bindings/bindings.component';
+import { ChangeDetectionComponent } from './change-detection/change-detection.component';
 import { DummyComponent } from './life-cycle/dummy/dummy.component';
 import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
+import { DefaultCDComponent } from './change-detection/default-cd/default-cd.component';
+import { OnPushComponent } from './change-detection/on-push/on-push.component';
 
 export const basicsRoutes: AppRoute = {
     displayName: 'Life Cycle',
@@ -26,15 +29,30 @@ export const basicsRoutes: AppRoute = {
         {
             displayName: 'Life Cycle',
             route: {
-                path: 'lifecycles',
+                path: 'life-cycles',
                 component: LifecycleHooksComponent,
+            },
+        },
+        {
+            displayName: 'Change detection',
+            route: {
+                path: 'change-detection',
+                component: ChangeDetectionComponent,
             },
         },
     ],
 };
 
 @NgModule({
-    declarations: [LifecycleHooksComponent, BasicHomeComponent, DummyComponent, BindingsComponent],
+    declarations: [
+        LifecycleHooksComponent,
+        BasicHomeComponent,
+        DummyComponent,
+        BindingsComponent,
+        ChangeDetectionComponent,
+        DefaultCDComponent,
+        OnPushComponent,
+    ],
     imports: [
         CommonModule,
         FormsModule,

@@ -1,0 +1,35 @@
+<div class="flex flex-col gap-5">
+    <div class="flex flex-col">
+        <div class="flex justify-around">
+            <button
+                class="px-4 py-2 bg-blue-500 rounded"
+                (click)="mutateUser()">
+                Mutate user
+            </button>
+            <input
+                class="text-black"
+                type="text"
+                [(ngModel)]="user2.userName" />
+            <button
+                class="px-4 py-2 bg-blue-500 rounded"
+                (click)="changeUser()">
+                Change user
+            </button>
+        </div>
+    </div>
+    <hr />
+
+    <div class="flex justify-between gap-10">
+        <div class="flex-1">
+            <h4 class="text-2xl text-center bg-red-700">Default changedetection</h4>
+            <app-default-cd [user]="user"></app-default-cd>
+        </div>
+        <div class="flex-1 bg-black">
+            <pre>{{ user | json }}</pre>
+        </div>
+        <div class="flex-1">
+            <h4 class="text-2xl text-center bg-green-700">On push changedetection</h4>
+            <app-on-push [user]="user"></app-on-push>
+        </div>
+    </div>
+</div>
