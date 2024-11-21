@@ -7,10 +7,12 @@ import { SharedModule } from '../shared/shared.module';
 import { BasicHomeComponent } from './basic-home/basic-home.component';
 import { BindingsComponent } from './bindings/bindings.component';
 import { ChangeDetectionComponent } from './change-detection/change-detection.component';
-import { DummyComponent } from './life-cycle/dummy/dummy.component';
-import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
 import { DefaultCDComponent } from './change-detection/default-cd/default-cd.component';
 import { OnPushComponent } from './change-detection/on-push/on-push.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { DummyComponent } from './life-cycle/dummy/dummy.component';
+import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
+import { HighlightTextDirective } from './directives/highlight-text.directive';
 
 export const basicsRoutes: AppRoute = {
     displayName: 'Life Cycle',
@@ -40,6 +42,13 @@ export const basicsRoutes: AppRoute = {
                 component: ChangeDetectionComponent,
             },
         },
+        {
+            displayName: 'Directives',
+            route: {
+                path: 'directives',
+                component: DirectivesComponent,
+            },
+        },
     ],
 };
 
@@ -52,6 +61,8 @@ export const basicsRoutes: AppRoute = {
         ChangeDetectionComponent,
         DefaultCDComponent,
         OnPushComponent,
+        DirectivesComponent,
+        HighlightTextDirective,
     ],
     imports: [
         CommonModule,
