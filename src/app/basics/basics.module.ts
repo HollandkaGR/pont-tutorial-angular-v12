@@ -10,10 +10,12 @@ import { ChangeDetectionComponent } from './change-detection/change-detection.co
 import { DefaultCDComponent } from './change-detection/default-cd/default-cd.component';
 import { OnPushComponent } from './change-detection/on-push/on-push.component';
 import { DirectivesComponent } from './directives/directives.component';
-import { DummyComponent } from './life-cycle/dummy/dummy.component';
-import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
 import { HighlightTextDirective } from './directives/highlight-text.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { DummyComponent } from './life-cycle/dummy/dummy.component';
+import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { ShortenedPipe } from './pipes/shortened.pipe';
 
 export const basicsRoutes: AppRoute = {
     displayName: 'Life Cycle',
@@ -50,6 +52,13 @@ export const basicsRoutes: AppRoute = {
                 component: DirectivesComponent,
             },
         },
+        {
+            displayName: 'Pipes',
+            route: {
+                path: 'pipes',
+                component: PipesComponent,
+            },
+        },
     ],
 };
 
@@ -65,6 +74,8 @@ export const basicsRoutes: AppRoute = {
         DirectivesComponent,
         HighlightTextDirective,
         UnlessDirective,
+        PipesComponent,
+        ShortenedPipe,
     ],
     imports: [
         CommonModule,
