@@ -13,6 +13,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { DummyComponent } from './life-cycle/dummy/dummy.component';
 import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
 import { HighlightTextDirective } from './directives/highlight-text.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 export const basicsRoutes: AppRoute = {
     displayName: 'Life Cycle',
@@ -63,6 +64,7 @@ export const basicsRoutes: AppRoute = {
         OnPushComponent,
         DirectivesComponent,
         HighlightTextDirective,
+        UnlessDirective,
     ],
     imports: [
         CommonModule,
