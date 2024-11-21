@@ -1,0 +1,55 @@
+<section class="relative page">
+    <div class="bg-gray-900 header">
+        <h1>{{ appName | uppercase }}</h1>
+        <div class="menu">
+            <button
+                (click)="createEmptyCompany()"
+                class="p-2 text-white bg-purple-700 rounded"
+                [disabled]="!parentForm.valid">
+                New company
+            </button>
+            <button
+                (click)="generateCompany()"
+                class="p-2 text-white bg-purple-700 rounded"
+                [disabled]="!parentForm.valid">
+                Generate company
+            </button>
+            <button
+                (click)="removeCompany()"
+                class="p-2 text-white bg-purple-700 rounded">
+                Remove company
+            </button>
+            <button
+                (click)="modifyFirst()"
+                class="p-2 text-white bg-purple-700 rounded">
+                Modify first company
+            </button>
+            <button
+                (click)="logForm()"
+                class="p-2 text-white bg-purple-700 rounded">
+                Log the form
+            </button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="company-forms">
+            <h4 class="text-2xl font-bold leading-6 text-center text-red-700">Companies</h4>
+            <form [formGroup]="parentForm">
+                <ng-container formArrayName="companies">
+                    <div *ngFor="let company of companiesArray.controls; let compIndex = index">
+                        <app-company
+                            (createNewAddress)="createAddress(compIndex)"
+                            (deleteAddress)="removeAddress(compIndex, $event)"
+                            [company]="$any(company)"></app-company>
+                    </div>
+                </ng-container>
+            </form>
+        </div>
+        <div class="form-json">
+            <div>Status: {{ parentForm.status }}</div>
+            <pre>{{ parentForm.value | json }}</pre>
+            <div>Errors:</div>
+            <pre>{{ getAllErrors(parentForm) | json }}</pre>
+        </div>
+    </div>
+</section>

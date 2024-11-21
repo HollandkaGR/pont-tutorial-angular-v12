@@ -1,0 +1,85 @@
+<div class="flex flex-col items-center">
+    <div>
+        <pre>Valid? {{ signupForm.valid }}</pre>
+        <pre>Dirty? {{ signupForm.dirty }}</pre>
+        <pre>Touched? {{ signupForm.touched }}</pre>
+        <pre>Status? {{ signupForm.status }}</pre>
+    </div>
+    <form
+        [formGroup]="signupForm"
+        (ngSubmit)="onSubmit()"
+        class="flex flex-col gap-2 p-5 border border-gray-400 rounded">
+        <div
+            formGroupName="userData"
+            class="flex flex-col gap-2">
+            <div class="flex gap-2">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    formControlName="username"
+                    class="text-black" />
+                <span
+                    *ngIf="!signupForm.get('userData.username')?.valid && signupForm.get('userData.username')?.touched"
+                    class="text-black bg-red-300">
+                    <span *ngIf="signupForm.get('userData.username')?.hasError('nameIsForbidden')"
+                        >This name is invalid!</span
+                    >
+                    <span *ngIf="signupForm.get('userData.username')?.hasError('required')"
+                        >This field is required!</span
+                    >
+                </span>
+            </div>
+            <div class="flex gap-2">
+                <label for="email">Email</label>
+                <input
+                    type="text"
+                    id="email"
+                    formControlName="email"
+                    class="text-black" />
+                <span
+                    *ngIf="!signupForm.get('userData.email')?.valid && signupForm.get('userData.email')?.touched"
+                    class="help-block"
+                    >Please enter a valid email!</span
+                >
+            </div>
+        </div>
+        <div class="flex justify-center gap-2">
+            <label *ngFor="let gender of genders">
+                <input
+                    type="radio"
+                    formControlName="gender"
+                    [value]="gender" />{{ gender }}
+            </label>
+        </div>
+        <div
+            class="flex flex-col items-center gap-3"
+            formArrayName="hobbies">
+            <span class="inline-block">Your Hobbies</span>
+            <button
+                class="inline-block p-2 bg-blue-500 rounded"
+                type="button"
+                (click)="onAddHobby()">
+                Add Hobby
+            </button>
+            <div
+                class="text-black"
+                *ngFor="let hobbyControl of hobbiesFormArray.controls; let i = index">
+                <input
+                    type="text"
+                    class="text-black bg-blue-400"
+                    [formControlName]="i" />
+            </div>
+        </div>
+        <span
+            *ngIf="!signupForm.valid && signupForm.touched"
+            class="help-block"
+            >Please enter valid data!</span
+        >
+        <button
+            class="inline-block btn btn-primary"
+            type="submit">
+            Submit
+        </button>
+    </form>
+</div>

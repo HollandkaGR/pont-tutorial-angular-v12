@@ -1,0 +1,36 @@
+.company {
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+    padding: 10px;
+}
+
+.header {
+    background-color: rgb(41, 74, 112);
+    color: white;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.info {
+    margin-left: 40px;
+}
+
+.pull-right {
+    text-align: right;
+}
+
+.budget {
+    margin-bottom: 10px;
+}
+
+.address {
+    margin-bottom: 10px;
+    border: 1px solid green;
+    padding: 10px;
+}
+
+.address-button[disabled] {
+    background-color: red;
+}

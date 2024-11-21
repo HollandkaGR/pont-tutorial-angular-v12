@@ -1,0 +1,35 @@
+<div
+    [formGroup]="form"
+    *ngIf="{ canLoan: canLoan$ | async } as vm">
+    <table>
+        <tr>
+            <td>Income</td>
+            <td>
+                <input
+                    formControlName="income"
+                    class="text-black"
+                    type="number" />
+            </td>
+        </tr>
+        <tr>
+            <td>Expenses</td>
+            <input
+                formControlName="expenses"
+                class="text-black"
+                type="number" />
+        </tr>
+        <tr>
+            <td>Profit</td>
+            <input
+                formControlName="profit"
+                class="text-black"
+                type="number" />
+        </tr>
+    </table>
+    <button
+        class="px-2 bg-pink-700 rounded loan-button"
+        [disabled]="!vm.canLoan"
+        (click)="addLoan()">
+        Loan
+    </button>
+</div>

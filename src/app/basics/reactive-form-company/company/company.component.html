@@ -1,0 +1,38 @@
+<div
+    [formGroup]="company"
+    class="company">
+    <div class="header">Company {{ companyValue.name }}</div>
+    <div class="info">
+        <label>Name:</label>
+        <input
+            type="text"
+            class="text-black"
+            formControlName="name" />
+
+        <div class="budget">
+            <app-budget formGroupName="budget"></app-budget>
+        </div>
+        <ng-container formArrayName="addresses">
+            <div
+                *ngFor="let address; as: FormGroup; of: addresses.controls; let addressIndex = index"
+                class="address">
+                <app-address
+                    [formGroupName]="addressIndex"
+                    [address]="address"></app-address>
+                <button
+                    (click)="removeAddress(addressIndex)"
+                    class="px-2 bg-red-800 rounded address-button">
+                    Remove address
+                </button>
+            </div>
+        </ng-container>
+        <div class="">
+            <button
+                (click)="addAddress()"
+                class="px-2 bg-blue-500 rounded address-button"
+                [disabled]="!company.valid">
+                New address
+            </button>
+        </div>
+    </div>
+</div>
