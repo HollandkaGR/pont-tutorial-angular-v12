@@ -16,12 +16,13 @@ import { DummyComponent } from './life-cycle/dummy/dummy.component';
 import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenedPipe } from './pipes/shortened.pipe';
+import { AddressComponent } from './reactive-form-company/address/address.component';
+import { BudgetComponent } from './reactive-form-company/budget/budget.component';
+import { CompanyComponent } from './reactive-form-company/company/company.component';
 import { ReactiveFormCompanyComponent } from './reactive-form-company/reactive-form-company.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { StoreComponent } from './store/store.component';
 import { TDFormComponent } from './tdform/tdform.component';
-import { CompanyComponent } from './reactive-form-company/company/company.component';
-import { BudgetComponent } from './reactive-form-company/budget/budget.component';
-import { AddressComponent } from './reactive-form-company/address/address.component';
 
 export const basicsRoutes: AppRoute = {
     displayName: 'Life Cycle',
@@ -86,6 +87,13 @@ export const basicsRoutes: AppRoute = {
                 component: ReactiveFormCompanyComponent,
             },
         },
+        {
+            displayName: 'Store',
+            route: {
+                path: 'store',
+                component: StoreComponent,
+            },
+        },
     ],
 };
 
@@ -109,6 +117,7 @@ export const basicsRoutes: AppRoute = {
         CompanyComponent,
         BudgetComponent,
         AddressComponent,
+        StoreComponent,
     ],
     imports: [
         CommonModule,
