@@ -12,8 +12,10 @@ export class DirectivesComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {
-        interval(2000).subscribe(() => {
+        const intervalObs = () => interval(2000);
+        intervalObs().subscribe(() => {
             this.hideUnless = !this.hideUnless;
+            console.log('Changeing hideUnless');
         });
     }
 }
