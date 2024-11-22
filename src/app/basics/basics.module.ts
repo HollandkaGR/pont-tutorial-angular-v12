@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -12,6 +13,7 @@ import { OnPushComponent } from './change-detection/on-push/on-push.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { HighlightTextDirective } from './directives/highlight-text.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { HTTPComponent } from './http/http.component';
 import { DummyComponent } from './life-cycle/dummy/dummy.component';
 import { LifecycleHooksComponent } from './life-cycle/lifecycle-hooks.component';
 import { PipesComponent } from './pipes/pipes.component';
@@ -94,6 +96,13 @@ export const basicsRoutes: AppRoute = {
                 component: StoreComponent,
             },
         },
+        {
+            displayName: 'Http',
+            route: {
+                path: 'http',
+                component: HTTPComponent,
+            },
+        },
     ],
 };
 
@@ -118,11 +127,13 @@ export const basicsRoutes: AppRoute = {
         BudgetComponent,
         AddressComponent,
         StoreComponent,
+        HTTPComponent,
     ],
     imports: [
-        CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        CommonModule,
+        HttpClientModule,
         RouterModule.forChild([
             {
                 path: basicsRoutes.route.path,

@@ -1,0 +1,21 @@
+<div
+    class="grid grid-cols-5 gap-4"
+    *ngIf="webUsers$ | async as users">
+    <div
+        *ngFor="let user of users"
+        class="p-2 border border-gray-300 rounded-md cursor-pointer select-none"
+        (click)="selectUser(user.id)">
+        <p>{{ user.name }}</p>
+    </div>
+</div>
+<div>Loading: {{ loadingInprogress }}</div>
+<div *ngIf="selectedUser$ | async as selectedUser">
+    <div *ngIf="selectedUser && !loadingInprogress; else loading">
+        <p>Id: {{ selectedUser.id }}</p>
+        <p>Name: {{ selectedUser.userName }}</p>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template>
