@@ -14,7 +14,7 @@
         </div>
         <ng-container formArrayName="addresses">
             <div
-                *ngFor="let address; as: FormGroup; of: addresses.controls; let addressIndex = index"
+                *ngFor="let address of addresses.controls; let addressIndex = index"
                 class="address">
                 <app-address
                     [formGroupName]="addressIndex"
